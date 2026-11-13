@@ -32,3 +32,9 @@ npx serve .
 
 - **GitHub Pages**: sube el repo → Settings → Pages → rama `main`, carpeta `/ (root)`.
 - **Netlify / Vercel**: arrastra la carpeta o conecta el repo; no hace falta comando de build.
+
+## Al publicar cambios
+
+Los navegadores guardan `css/` y `js/` en caché hasta 10 minutos. Cuando cambies
+esos archivos, sube el número de versión en `index.html` (`?v=2` → `?v=3`) para que
+los visitantes vean la versión nueva de inmediato.
