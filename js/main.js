@@ -21,7 +21,31 @@
   $$('[data-bind]').forEach((el) => (el.textContent = values[el.dataset.bind] ?? ''));
   document.title = `${P.name} — ${P.role}`;
 
-  const links = { cv: P.cv, mailto: `mailto:${P.email}` };
+  // Contacto: mensaje ya dirigido a tu correo, con asunto y saludo listos.
+  // mailto: solo funciona si el visitante tiene una app de correo configurada,
+  // por eso el botón principal abre Gmail en el navegador.
+  const subject = `Contacto desde tu portafolio`;
+  const body = `Hola ${P.name.split(' ')[0]},\n\n`;
+  const q = (o) => new URLSearchParams(o).toString().replace(/\+/g, '%20');
+  const links = {
+    cv: P.cv,
+    gmail: `https://mail.google.com/mail/?${q({ view: 'cm', fs: '1', to: P.email, su: subject, body })}`,
+    outlook: `https://outlook.live.com/mail/0/deeplink/compose?${q({ to: P.email, subject, body })}`,
+    mailto: `mailto:${P.email}?${q({ subject, body })}`,
+  };
+  $$('[data-bind-text="email"]').forEach((el) => (el.textContent = P.email));
+  $$('[data-copy="email"]').forEach((btn) =>
+    btn.addEventListener('click', async () => {
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(P.email);
+        btn.textContent = '¡Copiado!';
+      } catch (e) {
+        btn.textContent = P.email; // sin permiso de portapapeles: al menos se muestra
+      }
+      setTimeout(() => (btn.textContent = label), 2000);
+    })
+  );
   $$('[data-bind-href]').forEach((el) => (el.href = links[el.dataset.bindHref]));
   $$('[data-bind-data]').forEach((el) => (el.data = links[el.dataset.bindData]));
   $$('[data-bind-src]').forEach((el) => (el.src = P[el.dataset.bindSrc]));
@@ -31,7 +55,7 @@
   $('[data-render="skills"]').innerHTML = P.skills.map((s) => `<li>${esc(s)}</li>`).join('');
 
   const socials = Object.entries(P.socials).filter(([, url]) => url);
-  socials.push(['email', `mailto:${P.email}`]);
+  socials.push(['email', links.gmail]);
   $('[data-render="socials"]').innerHTML = socials
     .map(([k, url]) => `<li><a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${k}" title="${k}">${icon(k)}</a></li>`)
     .join('');

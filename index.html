@@ -94,7 +94,14 @@
     <section id="contacto" class="section container contact">
       <h2 class="section-title"><span class="num">04.</span> Contacto</h2>
       <p>¿Tienes una idea, una oferta o simplemente quieres saludar? Mi bandeja está abierta.</p>
-      <a href="#" class="btn btn-primary btn-lg" data-bind-href="mailto">Escríbeme</a>
+      <a href="#" class="btn btn-primary btn-lg" data-bind-href="gmail" target="_blank" rel="noopener">Escríbeme</a>
+      <p class="contact-alt">
+        ¿No usas Gmail? Escríbeme desde
+        <a href="#" data-bind-href="outlook" target="_blank" rel="noopener">Outlook</a>,
+        tu <a href="#" data-bind-href="mailto">app de correo</a>
+        o <button type="button" class="link-btn" data-copy="email">copia mi dirección</button>.
+      </p>
+      <p class="contact-email" data-bind-text="email"></p>
     </section>
   </main>
 
