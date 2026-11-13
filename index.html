@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portafolio</title>
+  <meta name="description" content="Portafolio personal: sobre mí, proyectos y CV.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Aplica el tema guardado antes de pintar para evitar parpadeo
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Principal">
+      <a href="#inicio" class="logo" data-bind="initials">TN</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li>
+          <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="inicio" class="hero container">
+      <p class="eyebrow">Hola, soy</p>
+      <h1 class="hero-title" data-bind="name">Tu Nombre</h1>
+      <p class="hero-role" data-bind="role">Desarrollador/a Web</p>
+      <p class="hero-tagline" data-bind="tagline"></p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#" class="btn btn-ghost" data-bind-href="cv" download>Descargar CV</a>
+      </div>
+      <ul class="socials" data-render="socials"></ul>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section container">
+      <h2 class="section-title"><span class="num">01.</span> Sobre mí</h2>
+      <div class="about">
+        <div class="about-text" data-render="about"></div>
+        <figure class="about-photo">
+          <img data-bind-src="photo" alt="Foto de perfil" width="320" height="320" loading="lazy">
+        </figure>
+      </div>
+      <h3 class="subhead">Tecnologías con las que trabajo</h3>
+      <ul class="skills" data-render="skills"></ul>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="section container">
+      <h2 class="section-title"><span class="num">02.</span> Proyectos</h2>
+      <div class="filters" role="toolbar" aria-label="Filtrar proyectos" data-render="filters"></div>
+      <div class="projects" data-render="projects"></div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="section container">
+      <h2 class="section-title"><span class="num">03.</span> Currículum</h2>
+      <div class="cv-card">
+        <div>
+          <p>Consulta mi experiencia, formación y habilidades en detalle.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary" data-bind-href="cv" download>Descargar PDF</a>
+            <a href="#" class="btn btn-ghost" data-bind-href="cv" target="_blank" rel="noopener">Abrir en nueva pestaña</a>
+          </div>
+        </div>
+        <object class="cv-preview" data-bind-data="cv" type="application/pdf" aria-label="Vista previa del CV">
+          <p>Tu navegador no puede mostrar el PDF. <a href="#" data-bind-href="cv">Descárgalo aquí</a>.</p>
+        </object>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container contact">
+      <h2 class="section-title"><span class="num">04.</span> Contacto</h2>
+      <p>¿Tienes una idea, una oferta o simplemente quieres saludar? Mi bandeja está abierta.</p>
+      <a href="#" class="btn btn-primary btn-lg" data-bind-href="mailto">Escríbeme</a>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span data-bind="year"></span> <span data-bind="name"></span>. Hecho con HTML, CSS y JavaScript.</p>
+  </footer>
+
+  <!-- Lightbox para capturas -->
+  <dialog class="lightbox" aria-label="Captura del proyecto">
+    <button class="lightbox-close" aria-label="Cerrar">×</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Captura anterior">‹</button>
+    <img alt="">
+    <button class="lightbox-nav lightbox-next" aria-label="Captura siguiente">›</button>
+    <p class="lightbox-count" aria-live="polite"></p>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
