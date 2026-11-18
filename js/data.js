@@ -15,13 +15,13 @@ const PORTFOLIO = {
   // Párrafos de la sección "Sobre mí"
   about: [
     'Soy Cristopher, estudiante de Ingeniería en Informática en la Universidad Bernardo O\'Higgins (Santiago, Chile). Me interesa el desarrollo web y busco un puesto donde seguir aprendiendo.',
-    'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript (React, Node.js, Express, PostgreSQL) y con Python, y me importa que el código se pueda probar.',
+    'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, Next.js, Node.js, Express, PostgreSQL) y con Python (FastAPI, Celery), y me importa que el código se pueda probar.',
     'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Tengo inglés B1 (Cambridge) y una certificación de Introducción a la ciberseguridad de Cisco.',
   ],
 
   skills: [
-    'JavaScript', 'React', 'Node.js', 'Express', 'PostgreSQL', 'Python',
-    'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git',
+    'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Python',
+    'FastAPI', 'Celery', 'Docker', 'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git',
   ],
 
   // Deja la url vacía ('') para ocultar una red
@@ -41,6 +41,24 @@ const PORTFOLIO = {
    *  - featured: true para destacarlo a lo ancho
    */
   projects: [
+    {
+      title: 'Radar de precios',
+      description:
+        'Sistema que sigue precios de supermercados chilenos: jobs programados recolectan y normalizan los datos, reconocen el mismo producto entre tiendas aunque cada una lo nombre distinto, y muestran historial, mínimos de 90 días y alertas en un dashboard con búsqueda en lenguaje natural. La demo usa una fuente de datos simulada, porque las cadenas no ofrecen una API pública.',
+      images: [
+        'assets/img/projects/radar-precios-inicio.png',
+        'assets/img/projects/radar-precios-producto.png',
+      ],
+      tags: ['Python', 'FastAPI', 'Celery', 'PostgreSQL', 'pgvector', 'Next.js', 'TypeScript', 'Docker'],
+      highlights: [
+        'Deduplicación entre tiendas con embeddings: F1 0,96 frente a 0,84 con reglas exactas',
+        'Claude solo traduce la pregunta a filtros: cada precio sale de SQL',
+        '51 pruebas, con integración contra Postgres + pgvector en CI',
+      ],
+      demo: 'https://radar-precios-kappa.vercel.app',
+      repo: 'https://github.com/Pelao380/radar-precios',
+      featured: true,
+    },
     {
       title: 'UniPlanner',
       description:
