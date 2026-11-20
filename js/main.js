@@ -11,6 +11,7 @@
     linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>',
     twitter: '<path d="M4 4l16 16M20 4L4 20"/>',
     email: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
+    check: '<path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/>',
     external: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>',
   };
   const icon = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`;
@@ -59,6 +60,35 @@
   $('[data-render="socials"]').innerHTML = socials
     .map(([k, url]) => `<li><a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${k}" title="${k}">${icon(k)}</a></li>`)
     .join('');
+
+  /* ---------- Certificaciones ---------- */
+  const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const fecha = (iso) => {
+    const [y, m] = iso.split('-').map(Number);
+    return `${MESES[m - 1]} ${y}`;
+  };
+  const certsEl = $('[data-render="certs"]');
+  if (certsEl && P.certifications) {
+    certsEl.innerHTML = P.certifications
+      .map((c) => {
+        const meta = [c.date && fecha(c.date), c.hours && `${c.hours} horas`].filter(Boolean).join(' · ');
+        const isAws = /aws/i.test(c.issuer);
+        return `
+      <article class="cert${isAws ? ' cert-aws' : ''}">
+        <div class="cert-icon" aria-hidden="true">${isAws ? 'aws' : esc(c.issuer.slice(0, 1))}</div>
+        <div class="cert-body">
+          <h3>${esc(c.title)}</h3>
+          <p class="cert-issuer">${esc(c.issuer)}</p>
+          ${meta ? `<p class="cert-meta">${esc(meta)}</p>` : ''}
+          ${c.file || c.verify ? `<div class="cert-links">
+            ${c.file ? `<a href="${esc(c.file)}" target="_blank" rel="noopener">${icon('external')} Ver certificado</a>` : ''}
+            ${c.verify ? `<a href="${esc(c.verify)}" target="_blank" rel="noopener">${icon('check')} Verificar insignia</a>` : ''}
+          </div>` : ''}
+        </div>
+      </article>`;
+      })
+      .join('');
+  }
 
   /* ---------- Proyectos ---------- */
   const projectsEl = $('[data-render="projects"]');

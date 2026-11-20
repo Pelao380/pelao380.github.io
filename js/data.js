@@ -16,12 +16,49 @@ const PORTFOLIO = {
   about: [
     'Soy Cristopher, estudiante de Ingeniería en Informática en la Universidad Bernardo O\'Higgins (Santiago, Chile). Me interesa el desarrollo web y busco un puesto donde seguir aprendiendo.',
     'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, Next.js, Node.js, Express, PostgreSQL) y con Python (FastAPI, Celery), y me importa que el código se pueda probar.',
-    'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Tengo inglés B1 (Cambridge) y una certificación de Introducción a la ciberseguridad de Cisco.',
+    'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Hoy me estoy formando en la nube con AWS (Cloud Foundations y Cloud Practitioner Essentials), y tengo inglés B1 (Cambridge) y una certificación de Introducción a la ciberseguridad de Cisco.',
   ],
 
   skills: [
     'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Python',
-    'FastAPI', 'Celery', 'Docker', 'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git',
+    'FastAPI', 'Celery', 'Docker', 'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git', 'AWS',
+  ],
+
+  /**
+   * Certificaciones. Cada una:
+   *  - title, issuer, date ('AAAA-MM-DD'), hours (opcional)
+   *  - file: PDF del certificado en assets/certs/ (opcional)
+   *  - verify: link de verificación, p. ej. Credly (opcional)
+   */
+  certifications: [
+    {
+      title: 'AWS Academy Graduate – Cloud Foundations',
+      issuer: 'AWS Academy',
+      date: '2026-11-18',
+      hours: 20,
+      file: 'assets/certs/aws-academy-cloud-foundations.pdf',
+      verify: 'https://www.credly.com/go/HekpsQAx',
+    },
+    {
+      title: 'AWS Cloud Practitioner Essentials',
+      issuer: 'AWS Training & Certification',
+      date: '2026-11-19',
+      file: 'assets/certs/aws-cloud-practitioner-essentials.pdf',
+    },
+    {
+      title: 'Job Roles in the Cloud',
+      issuer: 'AWS Training & Certification',
+      date: '2026-11-19',
+      file: 'assets/certs/aws-job-roles-in-the-cloud.pdf',
+    },
+    {
+      title: 'Introducción a la ciberseguridad',
+      issuer: 'Cisco',
+    },
+    {
+      title: 'Inglés nivel intermedio (B1)',
+      issuer: 'Universidad de Cambridge',
+    },
   ],
 
   // Deja la url vacía ('') para ocultar una red
