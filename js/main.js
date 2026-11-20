@@ -72,10 +72,10 @@
     certsEl.innerHTML = P.certifications
       .map((c) => {
         const meta = [c.date && fecha(c.date), c.hours && `${c.hours} horas`].filter(Boolean).join(' · ');
-        const isAws = /aws/i.test(c.issuer);
+        const brand = /aws/i.test(c.issuer) ? 'aws' : /cisco/i.test(c.issuer) ? 'cisco' : '';
         return `
-      <article class="cert${isAws ? ' cert-aws' : ''}">
-        <div class="cert-icon" aria-hidden="true">${isAws ? 'aws' : esc(c.issuer.slice(0, 1))}</div>
+      <article class="cert${brand ? ` cert-${brand}` : ''}">
+        <div class="cert-icon" aria-hidden="true">${brand || esc(c.issuer.slice(0, 1))}</div>
         <div class="cert-body">
           <h3>${esc(c.title)}</h3>
           <p class="cert-issuer">${esc(c.issuer)}</p>

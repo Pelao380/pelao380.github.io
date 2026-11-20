@@ -16,7 +16,7 @@ const PORTFOLIO = {
   about: [
     'Soy Cristopher, estudiante de Ingeniería en Informática en la Universidad Bernardo O\'Higgins (Santiago, Chile). Me interesa el desarrollo web y busco un puesto donde seguir aprendiendo.',
     'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, Next.js, Node.js, Express, PostgreSQL) y con Python (FastAPI, Celery), y me importa que el código se pueda probar.',
-    'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Hoy me estoy formando en la nube con AWS (Cloud Foundations y Cloud Practitioner Essentials), y tengo inglés B1 (Cambridge) y una certificación de Introducción a la ciberseguridad de Cisco.',
+    'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Hoy me estoy formando en la nube con AWS (Cloud Foundations y Cloud Practitioner Essentials), y tengo cursos de redes y ciberseguridad de Cisco Networking Academy e inglés B1 (Cambridge).',
   ],
 
   skills: [
@@ -52,8 +52,16 @@ const PORTFOLIO = {
       file: 'assets/certs/aws-job-roles-in-the-cloud.pdf',
     },
     {
-      title: 'Introducción a la ciberseguridad',
-      issuer: 'Cisco',
+      title: 'Networking Basics',
+      issuer: 'Cisco Networking Academy',
+      date: '2025-04-17',
+      file: 'assets/certs/cisco-networking-basics.pdf',
+    },
+    {
+      title: 'Introduction to Cybersecurity',
+      issuer: 'Cisco Networking Academy',
+      date: '2024-06-30',
+      file: 'assets/certs/cisco-introduction-to-cybersecurity.pdf',
     },
     {
       title: 'Inglés nivel intermedio (B1)',
