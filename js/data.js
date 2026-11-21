@@ -15,12 +15,12 @@ const PORTFOLIO = {
   // Párrafos de la sección "Sobre mí"
   about: [
     'Soy Cristopher, estudiante de Ingeniería en Informática en la Universidad Bernardo O\'Higgins (Santiago, Chile). Me interesa el desarrollo web y busco un puesto donde seguir aprendiendo.',
-    'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, Next.js, Node.js, Express, PostgreSQL) con Python (FastAPI, Celery) y con Java (Swing, JDBC), y me importa que el código se pueda probar.',
+    'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, React Native, Next.js, Node.js, Express, PostgreSQL) con Python (FastAPI, Celery) y con Java (Swing, JDBC), y me importa que el código se pueda probar.',
     'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Hoy me estoy formando en la nube con AWS (Cloud Foundations y Cloud Practitioner Essentials), y tengo cursos de redes y ciberseguridad de Cisco Networking Academy e inglés B1 (Cambridge).',
   ],
 
   skills: [
-    'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Python',
+    'JavaScript', 'TypeScript', 'React', 'React Native', 'Expo', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Python',
     'FastAPI', 'Celery', 'Docker', 'Java', 'JUnit', 'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git', 'AWS',
   ],
 
@@ -82,6 +82,7 @@ const PORTFOLIO = {
    *  - images: capturas (la primera es la portada; al hacer clic se ven todas)
    *  - tags: tecnologías (también sirven como filtros)
    *  - demo / repo: links (deja '' si no aplica)
+   *  - app: link a la app móvil, p. ej. el Release con el APK (opcional)
    *  - highlights: puntos destacados (opcional)
    *  - featured: true para destacarlo a lo ancho
    */
@@ -127,19 +128,20 @@ const PORTFOLIO = {
     {
       title: 'UniPlanner',
       description:
-        'Aplicación full stack para organizar los ramos de la universidad: registra evaluaciones con su ponderación y te dice al instante tu promedio y qué nota necesitas para aprobar (escala chilena 1.0–7.0). Se usa sin crear cuenta.',
+        'Aplicación full stack para organizar los ramos de la universidad: registra evaluaciones con su ponderación y te dice al instante tu promedio y qué nota necesitas para aprobar (escala chilena 1.0–7.0). Está en la web, donde se usa sin crear cuenta, y como app Android con la misma cuenta, que además muestra las próximas evaluaciones y te las recuerda la víspera.',
       images: [
         'assets/img/projects/uniplanner-dashboard-claro.png',
         'assets/img/projects/uniplanner-detalle-ramo.png',
         'assets/img/projects/uniplanner-dashboard-oscuro.png',
       ],
-      tags: ['React', 'Node.js', 'Express', 'PostgreSQL', 'JWT'],
+      tags: ['React', 'React Native', 'Expo', 'Node.js', 'Express', 'PostgreSQL', 'JWT'],
       highlights: [
+        'App Android con recordatorios locales que llegan sin internet y con la API dormida',
         'Modo invitado con localStorage y la misma API que el servidor',
-        'Paridad cliente/servidor verificada con 20.000 casos en CI',
-        'Tema claro, oscuro o del sistema sin parpadeo',
+        'Mismo cálculo en servidor, web y móvil, verificado con 20.000 casos en CI',
       ],
       demo: 'https://uniplanner-sable.vercel.app',
+      app: 'https://github.com/Pelao380/uniplanner/releases/latest',
       repo: 'https://github.com/Pelao380/uniplanner',
       featured: true,
     },

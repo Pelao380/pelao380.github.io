@@ -13,6 +13,7 @@
     email: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
     check: '<path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/>',
     external: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>',
+    phone: '<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/>',
   };
   const icon = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`;
 
@@ -111,6 +112,7 @@
           <ul class="tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
           <div class="project-links">
             ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">${icon('external')} Demo</a>` : ''}
+            ${p.app ? `<a href="${esc(p.app)}" target="_blank" rel="noopener">${icon('phone')} App Android</a>` : ''}
             ${p.repo ? `<a href="${esc(p.repo)}" target="_blank" rel="noopener">${icon('github')} Código</a>` : ''}
           </div>
         </div>
