@@ -15,13 +15,13 @@ const PORTFOLIO = {
   // Párrafos de la sección "Sobre mí"
   about: [
     'Soy Cristopher, estudiante de Ingeniería en Informática en la Universidad Bernardo O\'Higgins (Santiago, Chile). Me interesa el desarrollo web y busco un puesto donde seguir aprendiendo.',
-    'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, Next.js, Node.js, Express, PostgreSQL) y con Python (FastAPI, Celery), y me importa que el código se pueda probar.',
+    'Me gusta construir herramientas que la gente usa de verdad, como UniPlanner, que nació de una pregunta que todo estudiante se hace: ¿qué nota necesito para aprobar? Trabajo con JavaScript y TypeScript (React, Next.js, Node.js, Express, PostgreSQL) con Python (FastAPI, Celery) y con Java (Swing, JDBC), y me importa que el código se pueda probar.',
     'Antes de programar trabajé en atención al cliente en Walmart, donde aprendí a trabajar en equipo, a tratar con personas y a resolver problemas con calma. Hoy me estoy formando en la nube con AWS (Cloud Foundations y Cloud Practitioner Essentials), y tengo cursos de redes y ciberseguridad de Cisco Networking Academy e inglés B1 (Cambridge).',
   ],
 
   skills: [
     'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Python',
-    'FastAPI', 'Celery', 'Docker', 'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git', 'AWS',
+    'FastAPI', 'Celery', 'Docker', 'Java', 'JUnit', 'discord.py', 'SQLite', 'HTML', 'CSS', 'Vitest', 'GitHub Actions', 'Git', 'AWS',
   ],
 
   /**
@@ -86,6 +86,26 @@ const PORTFOLIO = {
    *  - featured: true para destacarlo a lo ancho
    */
   projects: [
+    {
+      title: 'VetFicha',
+      description:
+        'Software de escritorio para clínicas veterinarias pequeñas: agenda, ficha clínica con curva de peso, ventas con abonos y caja del día, y recordatorios de vacunas y controles por WhatsApp. Se instala con un solo archivo, funciona sin internet y respalda los datos automáticamente. Lo estoy ofreciendo a clínicas, así que el código es privado y lo muestro a pedido.',
+      images: [
+        'assets/img/projects/vetficha-inicio.png',
+        'assets/img/projects/vetficha-ficha.png',
+        'assets/img/projects/vetficha-nueva-venta.png',
+        'assets/img/projects/vetficha-oscuro-inicio.png',
+      ],
+      tags: ['Java', 'Swing', 'H2', 'JDBC', 'Maven', 'JUnit'],
+      highlights: [
+        'Actualizaciones que conservan los datos: migraciones con respaldo previo automático',
+        'Permisos por rol verificados en la capa de servicios, con registro de actividad',
+        '62 pruebas e instalador para Windows con Java incluido',
+      ],
+      demo: '',
+      repo: '',
+      featured: true,
+    },
     {
       title: 'Radar de precios',
       description:
