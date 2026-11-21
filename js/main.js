@@ -94,7 +94,7 @@
   /* ---------- Proyectos ---------- */
   const projectsEl = $('[data-render="projects"]');
   const renderProjects = (filter = 'Todos') => {
-    const list = P.projects.filter((p) => filter === 'Todos' || p.tags.includes(filter));
+    const list = P.projects.filter((p) => filter === 'Todos' || (p.categories || []).includes(filter));
     projectsEl.innerHTML = list
       .map((p) => {
         const imgs = p.images || [p.image];
@@ -121,7 +121,10 @@
       .join('');
   };
 
-  const tags = ['Todos', ...new Set(P.projects.flatMap((p) => p.tags))];
+  // Filtros por tipo de proyecto (pocas categorías); las tecnologías quedan como etiquetas en cada tarjeta
+  const ORDEN = ['Web', 'Móvil', 'Escritorio', 'Bots y datos'];
+  const cats = new Set(P.projects.flatMap((p) => p.categories || []));
+  const tags = ['Todos', ...ORDEN.filter((c) => cats.has(c)), ...[...cats].filter((c) => !ORDEN.includes(c))];
   const filtersEl = $('[data-render="filters"]');
   filtersEl.innerHTML = tags
     .map((t, i) => `<button class="filter" aria-pressed="${i === 0}">${esc(t)}</button>`)

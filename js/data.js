@@ -80,7 +80,8 @@ const PORTFOLIO = {
    * Proyectos. Cada uno:
    *  - title, description
    *  - images: capturas (la primera es la portada; al hacer clic se ven todas)
-   *  - tags: tecnologías (también sirven como filtros)
+   *  - categories: tipo de proyecto para los filtros (Web, Móvil, Escritorio, Bots y datos)
+   *  - tags: tecnologías (se muestran en la tarjeta)
    *  - demo / repo: links (deja '' si no aplica)
    *  - app: link a la app móvil, p. ej. el Release con el APK (opcional)
    *  - highlights: puntos destacados (opcional)
@@ -97,6 +98,7 @@ const PORTFOLIO = {
         'assets/img/projects/vetficha-nueva-venta.png',
         'assets/img/projects/vetficha-oscuro-inicio.png',
       ],
+      categories: ['Escritorio'],
       tags: ['Java', 'Swing', 'H2', 'JDBC', 'Maven', 'JUnit'],
       highlights: [
         'Actualizaciones que conservan los datos: migraciones con respaldo previo automático',
@@ -115,6 +117,7 @@ const PORTFOLIO = {
         'assets/img/projects/radar-precios-inicio.png',
         'assets/img/projects/radar-precios-producto.png',
       ],
+      categories: ['Web', 'Bots y datos'],
       tags: ['Python', 'FastAPI', 'Celery', 'PostgreSQL', 'pgvector', 'Next.js', 'TypeScript', 'Docker'],
       highlights: [
         'Deduplicación entre tiendas con embeddings: F1 0,96 frente a 0,84 con reglas exactas',
@@ -134,6 +137,7 @@ const PORTFOLIO = {
         'assets/img/projects/uniplanner-detalle-ramo.png',
         'assets/img/projects/uniplanner-dashboard-oscuro.png',
       ],
+      categories: ['Web', 'Móvil'],
       tags: ['React', 'React Native', 'Expo', 'Node.js', 'Express', 'PostgreSQL', 'JWT'],
       highlights: [
         'App Android con recordatorios locales que llegan sin internet y con la API dormida',
@@ -150,6 +154,7 @@ const PORTFOLIO = {
       description:
         'Bot de Discord para jugar guerras del santo grial al estilo de Fate: combate por turnos con decisiones ocultas y simultáneas, 348 Servants derivados de datos y una IA que llena los cupos vacíos.',
       images: ['assets/img/projects/graal-batalla.svg'],
+      categories: ['Bots y datos'],
       tags: ['Python', 'discord.py', 'SQLite'],
       highlights: [
         'Balance calibrado con un simulador propio',
